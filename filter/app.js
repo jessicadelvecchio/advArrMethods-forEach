@@ -47,6 +47,9 @@ const cOrUWords = words.filter(function (w) {
 });
 
 // * using filter with the DOM. Using boolean values -- checked box
+// combine indiv fn into a single fn that will run all at once
+// extract information, combining methods
+
 function extractCompletedTodos() {
   // select all checkboxes. Checked or not.
   // need to use the checked property
@@ -66,6 +69,57 @@ function extractCompletedTodos() {
       })
   );
 }
+
+// * writing your own filter.
+
+const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+
+// write a fn that will accept an arr and a callback fn
+function testFilter(arr, callback) {
+  // create a new arr. define an empty arr to push to
+  const filteredArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i], i, arr)) {
+      filteredArr.push(arr[i]);
+    }
+  }
+  // return filteredArr
+  return filteredArr;
+}
+
+const shortWords = testFilter(words, function (word) {
+  return word.length <= 10;
+});
+
+//
+//
+
+//
+//
+
+//
+//
+
+//
+//
+
+//
+//
+
+//
+//
+
+//
+//
+
+//
+//
+
+//
+//
+
+//
+//
 
 function myFilter(arr, callback) {
   const filteredArray = [];
